@@ -7,14 +7,15 @@ twitter: @iam_shanmukha
 
 '''
 import os
-import subprocess
 import shutil
-#list present working directory files and folders
-#ls = files+folders
+
 doc_extensions=[".txt",".docx",".doc",".xls",".xls"]
 compress_ext =[".zip",".rar",".zst",".gz",".xz"]
 vids_ext=[".mp4",".avi",".mkv"]
 pic_ext=[".png",".jpg",".jpeg"]
+
+#list present working directory files and folders
+#ls = files+folders
 ls=os.listdir()
 def create_dirs():
 	directories = ["Pdfs", "Pictures", "Videos", "compressed_Files", "Documents", "Py_files"]
