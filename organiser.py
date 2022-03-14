@@ -58,7 +58,7 @@ for file in ls:
 		print("ERROR",E)
 		continue
 folders = os.getcwd()  # directory
-for folder in list(os.walk(folders)) :
-    if not os.listdir(folder[0]):
-        os.removedirs(folder[0])
+for folder in list(os.walk(folders)):
+	if not os.listdir(folder[0]):
+		os.removedirs(folder[0])
 		print("removing {}".format(folder[0]))
