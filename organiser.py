@@ -17,9 +17,10 @@ softwares_ext = [".AppImage",".deb"]
 
 #list present working directory files and folders
 #ls = files+folders
+files = [f for f in os.listdir('.') if os.path.isfile(f)]
 ls=os.listdir()
 def create_dirs():
-	directories = ["Pdfs", "Pictures", "Videos", "compressed_Files", "Documents", "Py_files", "softwares"]
+	directories = ["Pdfs", "Pictures", "Videos", "compressed_Files", "Documents", "Py_files", "softwares","Others"]
 	for directory in directories:
 		if directory in ls:
 			print(f"{directory} directory exists...skipping ")
@@ -57,8 +58,19 @@ for file in ls:
 	except shutil.Error as E:
 		print("ERROR",E)
 		continue
+for f in files:
+	try:
+
+		if f == "organiser.py":
+			continue
+		else:
+			shutil.move(f,"Others")
+	except shutil.Error as E:
+		print("ERROR",E)
+		continue
+
 folders = os.getcwd()  # directory
 for folder in list(os.walk(folders)):
-	if not os.listdir(folder[0]):
-		os.removedirs(folder[0])
-		print("removing {}".format(folder[0]))
+    if not os.listdir(folder[0]):
+        os.removedirs(folder[0])
+        print("removing {}".format(folder[0]))
